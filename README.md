@@ -34,9 +34,9 @@ This component exposes API for the other components, to save and retrieve the da
 This repository is for Data engineering.
 If you wish to assist in different aspects (Data Engineering / Web development / DevOps), we have divided the project to several additional repositories focusing on these topics:
 
-* The machine-learning engine can be found in our [Main repository](https://github.com/liadmagen/Keep-Current)
-* Web Development & UI/UX experiments can be found in our [App repository](https://github.com/liadmagen/Keep-Current-App)
-* Website crawling and spider tasks are concentrated in our [Web Crawler repository](https://github.com/liadmagen/Keep-Current-Crawler)
+* The machine-learning engine can be found in our [Main repository](https://github.com/Keep-Current/Keep-Current)
+* Web Development & UI/UX experiments can be found in our [App repository](https://github.com/Keep-Current/Keep-Current-App)
+* Website crawling and spider tasks are concentrated in our [Web Crawler repository](https://github.com/Keep-Current/Keep-Current-Crawler)
 * Devops tasks are all across the project. We are trying to develop this project in a serverless architecture, and currently looking into Docker and Kubernetes as well as different hosting providers and plans. Feel free to join the discussion and provide your input!
 
 [travis-badge-url]: https://travis-ci.org/liadmagen/Keep-Current.svg?branch=master
