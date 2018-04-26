@@ -1,0 +1,8 @@
+-r test.txt
+
+pip
+wheel
+flake8
+Sphinx
+Flask-Script
+Flask
