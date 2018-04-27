@@ -10,3 +10,12 @@ class DocumentListUseCase(uc.UseCase):
     def process_request(self, request_object):
         domain_document = self.repo.list(filters=request_object.filters)
         return res.ResponseSuccess(domain_document)
+
+class DocumentInsertUseCase(uc.UseCase):
+
+    def __init__(self, repo):
+        self.repo = repo
+
+    def process_request(self, request_object):
+        self.repo.insert_document(request_object.document)
+        return res.ResponseSuccess()

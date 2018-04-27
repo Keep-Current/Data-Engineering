@@ -3,10 +3,7 @@ from pymongo import MongoClient
 import databaseconfig as cfg
 
 
-class MongoDBRepo:
-
-    def __init__(self):
-        self._client = MongoClient(cfg.mongo_db['connection_string'])
+class MongoDBRepo:        
 
     def _checkFilter(self, key, value):
         if '__' not in key:
@@ -19,18 +16,15 @@ class MongoDBRepo:
 
         return key, operator
 
-        #operator = '__{}__'.format(operator)
-        #return getattr(element[key], operator)(value)
-
     def list(self, filters=None):
+        self._client = MongoClient(cfg.mongo_db['connection_string'])
         parsed_filter = {}
 
-        for key, value in filters.items():
-            #result = [e for e in result if self._check(e, key, value)]
+        for key, value in filters.items():            
             key, _ = self._checkFilter(key, value)
             parsed_filter[key] = value
             
-        db = self._client.keep_current        
+        db = self._client.keep_current
         documents = db.Documents
         cursor = documents.find(parsed_filter)
         result = []
@@ -38,3 +32,9 @@ class MongoDBRepo:
             result.append(document)
 
         return result
+
+    def insert_document(self, document):
+        self._client = MongoClient(cfg.mongo_db['connection_string'])
+        db = self._client.keep_current
+        documents = db.Documents
+        documents.insert_one(document)

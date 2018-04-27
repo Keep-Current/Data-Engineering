@@ -17,7 +17,7 @@ STATUS_CODES = {
 blueprint = Blueprint('document', __name__)
 
 @blueprint.route('/documents', methods=['GET'])
-def document():
+def documents():
     qrystr_params = {
         'filters': {},
     }
@@ -30,6 +30,24 @@ def document():
 
     repo = MongoDBRepo()
     use_case = uc.DocumentListUseCase(repo)
+
+    response = use_case.execute(request_object)
+
+    return Response(json.dumps(response.value, cls=ser.DocumentEncoder),
+                    mimetype='application/json',
+                    status=STATUS_CODES[response.type])
+
+@blueprint.route('/document', methods=['POST'])
+def document():
+    if (isinstance(request.json, str)):
+        dict = json.loads(request.json)
+    else:
+        dict = request.json
+
+    request_object = req.DocumentInsertRequestObject.from_dict(dict)
+
+    repo = MongoDBRepo()
+    use_case = uc.DocumentInsertUseCase(repo)
 
     response = use_case.execute(request_object)
 

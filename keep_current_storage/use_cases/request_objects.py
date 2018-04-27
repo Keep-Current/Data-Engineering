@@ -46,3 +46,23 @@ class DocumentListRequestObject(ValidRequestObject):
             return invalid_req
 
         return DocumentListRequestObject(filters=adict.get('filters', None))
+
+class DocumentInsertRequestObject(ValidRequestObject):
+
+    def __init__(self, document=None):
+        self.document = document
+
+    @classmethod
+    def from_dict(cls, adict):
+        invalid_req = InvalidRequestObject()
+
+        if 'id' not in adict:
+            invalid_req.add_error('id', 'not provided')
+
+        if 'url' not in adict: 
+            invalid_req.add_error('url', 'not provided')
+
+        if invalid_req.has_errors():
+            return invalid_req
+
+        return DocumentInsertRequestObject(document=adict)

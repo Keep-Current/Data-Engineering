@@ -44,9 +44,21 @@ def test_repository_list_with_filters_unknown_operator(documents):
     with pytest.raises(ValueError):
         repo.list(filters={'id__in': [20, 30]})
 
-
 def test_repository_list_with_filters_id(documents):
     repo = memrepo.MemRepo(documents)
 
     _check_results(repo.list(filters={'id': 'f853578c-fc0f-4e65-81b8-566c5dffa35a'}), [document_1])
     _check_results(repo.list(filters={'id__eq': 'f853578c-fc0f-4e65-81b8-566c5dffa35a'}), [document_1])
+
+def test_repository_insert(documents):
+    repo = memrepo.MemRepo(documents)
+    len1 = len(repo.list())
+    
+    document1 = {
+        'id' : '1111-2222',
+        'url' : 'https://arxiv.org/pdf/1705.09655v2.pdf'
+        }
+
+    repo.insert_document(document1)
+    len2 = len(repo.list())
+    assert len2 == len1 + 1

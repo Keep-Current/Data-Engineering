@@ -31,3 +31,6 @@ class MemRepo:
             result = [e for e in result if self._check(e, key, value)]
 
         return [Document.from_dict(r) for r in result]
+
+    def insert_document(self, document):
+        self._entries.append(document)
