@@ -8,7 +8,7 @@ class MongoDBRepo:
     def __init__(self):
         self._client = MongoClient(cfg.mongo_db['connection_string'])
 
-    def _check(self, element, key, value):
+    def _checkFilter(self, key, value):
         if '__' not in key:
             key = key + '__eq'
 
@@ -17,13 +17,22 @@ class MongoDBRepo:
         if operator not in ['eq', 'lt', 'gt']:
             raise ValueError('Operator {} is not supported'.format(operator))
 
-        operator = '__{}__'.format(operator)
-        return getattr(element[key], operator)(value)
+        return key, operator
+
+        #operator = '__{}__'.format(operator)
+        #return getattr(element[key], operator)(value)
 
     def list(self, filters=None):
-        db = self._client.keep_current
+        parsed_filter = {}
+
+        for key, value in filters.items():
+            #result = [e for e in result if self._check(e, key, value)]
+            key, _ = self._checkFilter(key, value)
+            parsed_filter[key] = value
+            
+        db = self._client.keep_current        
         documents = db.Documents
-        cursor = documents.find({})
+        cursor = documents.find(parsed_filter)
         result = []
         for document in cursor:
             result.append(document)
