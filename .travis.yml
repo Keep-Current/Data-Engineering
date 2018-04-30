@@ -3,7 +3,7 @@ python:
   - "3.5"
   - "3.6"
 env:
-  - MONGO_CONNECTION_STRING='your_mongo_connection_string'
+  - MONGO_CONNECTION_STRING=your_mongo_connection_string
 install:
   - sudo apt-get update
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
