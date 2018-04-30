@@ -1,0 +1,5 @@
+build:
+  languages:
+    - python
+run:
+  web: python manage.py runserver
