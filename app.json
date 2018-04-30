@@ -1,0 +1,21 @@
+{
+  "name": "Data-Engineering",
+  "scripts": {
+    "postdeploy": "python manage.py runserver"
+  },
+  "env": {
+    "MONGO_CONNECTION_STRING": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
