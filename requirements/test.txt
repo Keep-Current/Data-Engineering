@@ -7,3 +7,6 @@ pytest-cov
 pytest-flask
 pymongo
 gunicorn
+flake8
+Sphinx
+Flask-Script
