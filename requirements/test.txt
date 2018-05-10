@@ -6,3 +6,4 @@ coverage
 pytest-cov
 pytest-flask
 pymongo
+gunicorn
