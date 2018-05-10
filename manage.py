@@ -9,7 +9,8 @@ from flask_script.commands import Clean, ShowUrls
 from keep_current_storage.app import create_app
 
 
-app = create_app(os.environ.get('FLASK_ENV') or 'DevConfig')
+#app = create_app(os.environ.get('FLASK_ENV') or 'DevConfig')
+app = create_app()
 manager = Manager(app)
 
 manager.add_command('server', Server())
