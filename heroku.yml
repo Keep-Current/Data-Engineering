@@ -2,4 +2,4 @@ build:
   languages:
     - python
 run:
-  web: python manage.py runserver
+  web: python manage.py server
