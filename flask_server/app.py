@@ -1,7 +1,7 @@
 from flask import Flask
 
-from keep_current_storage.rest import document
-from keep_current_storage.settings import DevConfig
+from flask_server.rest import document
+from flask_server.settings import DevConfig
 
 
 def create_app(config_object=DevConfig):

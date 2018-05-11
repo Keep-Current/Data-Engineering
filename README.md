@@ -2,7 +2,7 @@
 This module handles the DB and storage of documents info, users, relations between the two and the recommendations
 
 <!-- Badges section here. -->
-[![Build Status](https://img.shields.io/travis/liadmagen/Keep-Current-Storage/master.svg?label=travis)][travis-badge-url]
+[![Build Status](https://travis-ci.org/Keep-Current/Data-Engineering.svg?branch=master)](https://travis-ci.org/Keep-Current/Data-Engineering)[![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/Data-Engineering?branch=master)](https://bettercodehub.com/)
 
 After studying a topic, keeping current with the news, published papers, advanced technologies and such proved to be a hard work.
 One must attend conventions, subscribe to different websites and newsletters, go over different emails, alerts and such while filtering the relevant data out of these sources.

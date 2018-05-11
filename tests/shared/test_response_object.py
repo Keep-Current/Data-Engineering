@@ -1,7 +1,6 @@
 import pytest
 
-from keep_current_storage.shared import response_object as res
-from keep_current_storage.use_cases import request_objects as req
+from keep_current_storage.shared import response_object as res, request_object as req
 
 
 @pytest.fixture
