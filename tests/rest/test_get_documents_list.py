@@ -6,7 +6,11 @@ from keep_current_storage.shared import response_object as res
 
 document_1_dict = { 
         'id' : 'f853578c-fc0f-4e65-81b8-566c5dffa35a',
-        'url' :  'https://arxiv.org/pdf/1606.04155.pdf'
+        'url' :  'https://arxiv.org/pdf/1606.04155.pdf',
+        'title': 'Rationalizing Neural Predictions',
+        'content': '''Abstract
+Prediction without justification has limited ap-
+plicability. '''
         }
 
 document1_domain_model = Document.from_dict(document_1_dict)
@@ -41,7 +45,7 @@ def test_request_object_initialisation_and_use_with_filters(mock_use_case, clien
     mock_use_case().execute.return_value = res.ResponseSuccess([])
     internal_request_object = mock.Mock()
 
-    request_object_class = 'keep_current_storage.use_cases.request_objects.DocumentListRequestObject'
+    request_object_class = 'keep_current_storage.use_cases.request_objects.RequestObject'
     with mock.patch(request_object_class) as mock_request_object:
         mock_request_object.from_dict.return_value = internal_request_object
         client.get('/documents?filter_param1=value1&filter_param2=value2')

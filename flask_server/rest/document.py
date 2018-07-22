@@ -26,7 +26,7 @@ def documents():
         if arg.startswith('filter_'):
             qrystr_params['filters'][arg.replace('filter_', '')] = values
 
-    request_object = req.DocumentListRequestObject.from_dict(qrystr_params)
+    request_object = req.RequestObject.from_dict(qrystr_params)
 
     repo = MongoDBRepo()
     use_case = uc.DocumentListUseCase(repo)
@@ -44,7 +44,7 @@ def document():
     else:
         dict = request.json
 
-    request_object = req.DocumentInsertRequestObject.from_dict(dict)
+    request_object = req.RequestObject.from_dict(dict)
 
     repo = MongoDBRepo()
     use_case = uc.DocumentInsertUseCase(repo)

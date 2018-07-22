@@ -3,21 +3,35 @@ import pytest
 from keep_current_storage.shared.domain_model import DomainModel
 from keep_current_storage.domain.document import Document
 from keep_current_storage.repository import memrepo
+   
+document_1 = Document(
+    id='f853578c-fc0f-4e65-81b8-566c5dffa35a',
+    url =  'https://arxiv.org/pdf/1606.04155.pdf',
+    title = 'Rationalizing Neural Predictions',
+    content = '''Abstract
+Prediction without justification has limited ap-
+plicability. '''
+)
 
-document_1 = { 
-        'id' : 'f853578c-fc0f-4e65-81b8-566c5dffa35a',
-        'url' :  'https://arxiv.org/pdf/1606.04155.pdf'
-        }
+document_2 = Document(
+    id='fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a',
+    url = 'https://arxiv.org/pdf/1506.08941.pdf',
+    title = 'Language Understanding for Text-based Games using Deep Reinforcement Learning',
+    content = '''Abstract
+In this paper, we consider the task of learn-
+ing control policies for text-based games.
+In these games, all interactions in the vir-
+tual  world  are  through  text  and  the  un-
+derlying  state  is  not  observed.  '''
+)
 
-document_2 = {
-        'id' : 'fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a',
-        'url' : 'https://arxiv.org/pdf/1506.08941.pdf'
-        }
-
-document_3 = {
-        'id' : '913694c6-435a-4366-ba0d-da5334a611b2',
-        'url' : 'https://arxiv.org/pdf/1705.09655v2.pdf'
-        }
+document_3 = Document(
+    id='913694c6-435a-4366-ba0d-da5334a611b2',
+    url = 'https://arxiv.org/pdf/1705.09655v2.pdf',
+    title = 'Style Transfer from Non-Parallel Text by Cross-Alignment',
+    content = '''Abstract
+This paper focuses on style transfer on the basis of non-parallel text. '''
+)
 
 @pytest.fixture
 def documents():

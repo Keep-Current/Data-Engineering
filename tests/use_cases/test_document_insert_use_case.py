@@ -14,7 +14,7 @@ def test_document_insert_valid_json():
         'id' : '1111-11111-22222',
         'url' :  'https://arxiv.org/pdf/12345.pdf'
     }
-    request_object = ro.DocumentInsertRequestObject.from_dict(document_1_dict)
+    request_object = ro.RequestObject.from_dict(document_1_dict)
     response_object = document_insert_use_case.execute(request_object)
 
     repo.insert_document.assert_called_with(document_1_dict)
@@ -29,7 +29,7 @@ def test_document_insert_invalid_json_id():
         '_id_' : '1111-11111-22222',
         'url' :  'https://arxiv.org/pdf/12345.pdf'
     }
-    request_object = ro.DocumentInsertRequestObject.from_dict(document_1_dict)
+    request_object = ro.RequestObject.from_dict(document_1_dict)
     response_object = document_insert_use_case.execute(request_object)
 
     repo.insert_document.assert_not_called()
@@ -47,7 +47,7 @@ def test_document_insert_invalid_json_url():
         'id' : '1111-11111-22222',
         '_url_' :  'https://arxiv.org/pdf/12345.pdf'
     }
-    request_object = ro.DocumentInsertRequestObject.from_dict(document_1_dict)
+    request_object = ro.RequestObject.from_dict(document_1_dict)
     response_object = document_insert_use_case.execute(request_object)
 
     repo.insert_document.assert_not_called()
