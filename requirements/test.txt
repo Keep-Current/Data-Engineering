@@ -3,6 +3,7 @@
 pytest
 tox
 coverage
+codacy-coverage
 pytest-cov
 pytest-flask
 pymongo
