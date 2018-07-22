@@ -22,6 +22,7 @@ install:
 # command to run the tests:
 script:
  - py.test
+ - coverage run manage.py server
  - coverage xml
 after_success:
   - python-codacy-coverage -r coverage.xml
