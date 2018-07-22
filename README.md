@@ -2,6 +2,7 @@
 This module handles the DB and storage of documents info, users, relations between the two and the recommendations
 
 <!-- Badges section here. -->
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc0eb9354c4742fca2af56a21267532a)](https://app.codacy.com/app/Keep-Current/Data-Engineering?utm_source=github.com&utm_medium=referral&utm_content=Keep-Current/Data-Engineering&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/Keep-Current/Data-Engineering.svg?branch=master)](https://travis-ci.org/Keep-Current/Data-Engineering)[![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/Data-Engineering?branch=master)](https://bettercodehub.com/)
 
 After studying a topic, keeping current with the news, published papers, advanced technologies and such proved to be a hard work.
